@@ -1,9 +1,9 @@
 import * as data from '../data.json';
 
-import { convertRRuleObjToRRuleStr, mapFreq, getRRuleHandle, getLastInstance } from './rruleHelper/rruleHelper';
+import { convertRRuleObjToRRuleStr, mapFreq, getLastInstance } from './rruleHelper/rruleHelper';
 import { createConnection } from "typeorm";
 import { Event } from "../entity/Event";
-import { RRule } from 'rrule';
+import { CreateEventDto } from "./dto/create-event.dto";
 
 
 function createEventObj(rawInput: any): any {
@@ -46,22 +46,23 @@ function createEventObj(rawInput: any): any {
     return eventData;
 }
 
-export async function create(rawEvent: any) {
-    createConnection().then(async (connection) => {
-        console.log('raw event input = ', rawEvent);
+export async function create(rawEvent: CreateEventDto) {
+    console.log('raw event input = ', rawEvent);
 
-        // create connection, get repository
-        const eventRepository = connection.getRepository(Event);
+    // create connection, get repository
+    const connection = await createConnection();
+    const eventRepository = connection.getRepository(Event);
 
-        // operations on the database
-        const eventData = createEventObj(rawEvent);
-        const event = await eventRepository.create(eventData);
-        const result = await eventRepository.save(event);
-        console.log('create result = ', result);
-
-    })
+    // operations on the database
+    const eventData = createEventObj(rawEvent);
+    const event = await eventRepository.create(eventData);
+    const result = await eventRepository.save(event);
+    console.log('create result = ', result);
 }
 
+
 data.forEach((rawEvent) => {
-    create(rawEvent);
+    let createEventDto = new CreateEventDto();
+    Object.assign(createEventDto, rawEvent);
+    create(createEventDto);
 })

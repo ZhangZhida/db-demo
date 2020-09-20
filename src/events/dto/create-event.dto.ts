@@ -11,10 +11,8 @@ export class CreateEventDto {
     end_date: Date;
     start_datetime: Date;
     end_datetime: Date;
-    recurrence_end_datetime: Date;
     event_timezone: string;
-    rrule: string = "";
-    exdate: string[] = [];
+    recurrence_input: any;
 
     print() {
         console.log(
@@ -28,10 +26,8 @@ export class CreateEventDto {
             '\nend_date = ', this.end_date,
             '\nstart_datetime = ', this.start_datetime,
             '\nend_datetime = ', this.end_datetime,
-            '\nrecurrence_end_datetime = ', this.recurrence_end_datetime,
             '\nevent_timezone = ', this.event_timezone,
-            '\nrrule = ', this.rrule,
-            '\nexdate = ', this.exdate
+            '\nrecurrence_input', this.recurrence_input
         )
     }
 
