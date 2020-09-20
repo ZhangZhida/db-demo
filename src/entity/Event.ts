@@ -35,27 +35,32 @@ export class Event {
     isAllDay: number
 
     @Column({
-        type: "date"
+        type: "date",
+        nullable: true
     })
     start_date: Date;
 
     @Column({
-        type: "date"
+        type: "date",
+        nullable: true
     })
     end_date: Date;
 
     @Column({
-        type: "datetime"
+        type: "datetime",
+        nullable: true
     })
     start_datetime: Date;
 
     @Column({
-        type: "datetime"
+        type: "datetime",
+        nullable: true
     })
     end_datetime: Date;
 
     @Column({
-        type: "datetime"
+        type: "datetime",
+        nullable: true
     })
     recurrence_end_datetime: Date;
 
@@ -68,5 +73,5 @@ export class Event {
     rrule: string;
 
     @Column("simple-array")
-    exdate: string[];
+    exdate: string[]
 }

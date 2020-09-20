@@ -1,0 +1,19 @@
+[
+    {
+        "calendarId": "1000",
+        "category": "normal",
+        "title": "交水电费",
+        "description": "",
+        "location": "",
+        "isAllDay": 1,
+        "start_date": "2020-09-20",
+        "end_date": "2020-09-20",
+        "event_timezone": "Eastern Standard Time (EST)",
+        "recurrence_input": {
+            "dtstart": "2020-09-12T10:30:00",
+            "until": "2020-12-31",
+            "freq": "WEEKLY",
+            "interval": 2
+        }
+    }
+]

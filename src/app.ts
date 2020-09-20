@@ -44,22 +44,3 @@ createConnection().then(connection => {
     // start express server
     app.listen(3000);
 });
-
-// export class CreateEventDto {
-//     // id: number;
-//     calendarId: number;
-//     uuid: string;
-//     category: string;
-//     title: string;
-//     description: string;
-//     location: string;
-//     isAllDay: number
-//     start_date: Date;
-//     end_date: Date;
-//     start_datetime: Date;
-//     end_datetime: Date;
-//     recurrence_end_datetime: Date;
-//     event_timezone: string;
-//     rrule: string;
-//     exdate: string[];
-// }
